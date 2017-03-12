@@ -14,23 +14,28 @@ public class TopicsController {
     TopicsServices topicsServices;
 
     @GetMapping("/topics")
-    public List<Topic> getAllTopics(){
+    public List<Topic> getAllTopics() {
         return topicsServices.getAllTopics();
     }
 
     @GetMapping("/topics/{id}")
-    public Topic getTopic(@PathVariable String id){
+    public Topic getTopic(@PathVariable String id) {
         return topicsServices.getTopic(id);
     }
 
     @PostMapping("/topics")
-    public void addTopic(@RequestBody Topic topic){
+    public void addTopic(@RequestBody Topic topic) {
         topicsServices.addTopic(topic);
     }
 
     @PutMapping("/topics/{id}")
-    public void updateTopic(@RequestBody Topic topic,@PathVariable String id){
+    public void updateTopic(@RequestBody Topic topic, @PathVariable String id) {
         topicsServices.updateTopic(id, topic);
+    }
+
+    @DeleteMapping("/topics/{id}")
+    public void deleteTopic(@PathVariable String id) {
+        topicsServices.deleteTopic(id);
     }
 
 }
